@@ -38,7 +38,7 @@ Airbnb 的javascript规范指南
 
 ## <a name='types'>数据类型</a>
 
-- **原始类型(Primitives)**：当你给一个原始类型赋值时，直接返回的就是这个值的本身。
+- **原始类型(Primitives)**：当你给一个原始类型赋值时，返回的是这个值的本身。
   
     + `string`
     + `number`
