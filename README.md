@@ -168,3 +168,91 @@ Airbnb 的javascript规范指南
 
 ## <a name='strings'>String类型</a>
 
+- 使用单引号`''`
+    
+    ```javascript
+    //不推荐
+    var name = "Bob Parr";
+
+    //推荐
+    var name = 'Bob Parr';
+
+    //不推荐
+    var fullName - "Bob " + this.lastName;
+
+    //推荐
+    var fullName = 'Bob ' + this.lastName;
+    ```
+
+- 当字符串长度超过80个时，应该通过字符串连接多行显示。
+
+- 注意：过度使用字符串连接将会印象性能。[jsPerf](http://jsperf.com/ya-string-concat)&[Discussion](https://github.com/airbnb/javascript/issues/40)
+
+    ```javascript
+    //不推荐
+    var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+
+    //不推荐
+    var errorMessage = 'This is a super long error that \
+    was thrown because of Batman. \
+    When you stop to think about \
+    how Batman had anything to do \
+    with this, you would get nowhere \
+    fast.';
+
+    //推荐
+    var errorMessage = 'This is a super long error that ' +
+      'was thrown because of Batman.' +
+      'When you stop to think about ' +
+      'how Batman had anything to do ' +
+      'with this, you would get nowhere ' +
+      'fast.';
+    ```
+
+- 当程序建立一个字符串时， 使用join代替字符串连接。特别是在IE下：[jsPerf](http://jsperf.com/string-vs-array-concat/2)
+
+    ```javascript
+    var items,
+        messages,
+        length, i;
+
+    messages = [{
+        state: 'success',
+        message: 'This one worked.'
+    },{
+        state: 'success',
+        message: 'This one worked as well.'
+    },{
+        state: 'error',
+        message: 'This one did not work.'
+    }];
+
+    length = messages.length;
+
+    // 不推荐
+    function inbox(messages) {
+      items = '<ul>';
+
+      for (i = 0; i < length; i++) {
+        items += '<li>' + messages[i].message + '</li>';
+      }
+
+      return items + '</ul>';
+    }
+
+    // 推荐
+    function inbox(messages) {
+      items = [];
+
+      for (i = 0; i < length; i++) {
+        items[i] = messages[i].message;
+      }
+
+      return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
+    }
+    ```
+
+## <a name='functions'>函数</a>
+
+    - 函数表达式：
+
