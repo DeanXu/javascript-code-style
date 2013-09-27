@@ -255,4 +255,22 @@ Airbnb 的javascript规范指南
 ## <a name='functions'>函数</a>
 
     - 函数表达式：
+    
+    ```javascript
+    // 匿名函数表达式
+    var anonymous = function(){
+      return true;    
+    }
 
+    // 命名函数表达式
+    var named = function named() {
+      return true;
+    };
+
+    // 立即执行的函数表达式（IIFE）
+    (function(){
+      console.log('Welcome to the Internet. Please follow me.');    
+    })();
+    ```
+
+    - 不要定义函数在一个非函数块（如if、while内）。
