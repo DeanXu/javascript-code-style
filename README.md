@@ -157,7 +157,7 @@ Airbnb 的javascript规范指南
     itemsCopy = items.slice();
     ```
 
-- 用slice转换类数组对象到数组
+- 用slice转换伪数组对象到数组
 
     ```javascript
     function trigger() {
