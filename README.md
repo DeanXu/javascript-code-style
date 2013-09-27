@@ -155,4 +155,16 @@ Airbnb 的javascript规范指南
 
     //推荐
     itemsCopy = items.slice();
+    ```
+
+- 用slice转换类数组对象到数组
+
+    ```javascript
+    function trigger() {
+      var args = Array.prototype.slice.call(arguments);    
+      ...
+    }
+    ```
+
+## <a name='strings'>String类型</a>
 
