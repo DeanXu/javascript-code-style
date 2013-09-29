@@ -273,5 +273,39 @@ Airbnb 的javascript规范指南
     })();
     ```
 
-    - 在非函数块（如if/while）内，想声明一个函数应该用 给函数赋一个变量 的方法代替。
+    - 不要将函数声明放在如if/while循环或其他任何语句中。但可以用函数表达式来替代函数声明这么做。一些浏览器可能的确可以在语句中使用函数声明。但是在解析方面的处理各不相同，各种浏览器下兼容性很不好。
+    
+    - **注意:** ECMA-262定义了一系列的语句，但是函数声明并没有被归类为真正的语句。[关于这点可查看ECMA-262的文档](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)
+
+    ```javascript
+    //不推荐
+    if (currentUser){
+      function test() {
+        console.log('Nope.');
+      }
+    }
+
+    //推荐
+    if (currentUser){
+      var test = function test() {
+        console.log('Yup.');
+      }
+    }
+    ```
+
+    - `arguments` 不能作为一个参数的名字， 因为这会覆盖每一个函数内的`arguments`对象。
+
+    ```javascript
+    //不推荐
+    function nope(name, options, arguments) {
+      // ...stuff...    
+    }
+
+    //推荐
+    function yup(name, options, args) {
+      // ...stuff...    
+    }
+    ```
+    
+## <a name='properties'>属性</a>
     
