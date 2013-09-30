@@ -39,13 +39,13 @@ Airbnb 的javascript规范指南
 ## <a name='types'>数据类型</a>
 
 - **原始类型(Primitives)**：当你给一个原始类型赋值时，返回的是这个值的本身。
-  
+
     + `string`
     + `number`
     + `boolean`
     + `null`
     + `undefined`
-    
+
     ```javascript
     var foo = 1,
         bar = foo;
@@ -150,7 +150,7 @@ Airbnb 的javascript规范指南
 
     //不推荐
     for (i = 0; i < len; i++){
-      itemsCopy[i] = items[i];    
+      itemsCopy[i] = items[i];
     }
 
     //推荐
@@ -161,7 +161,7 @@ Airbnb 的javascript规范指南
 
     ```javascript
     function trigger() {
-      var args = Array.prototype.slice.call(arguments);    
+      var args = Array.prototype.slice.call(arguments);
       ...
     }
     ```
@@ -169,7 +169,7 @@ Airbnb 的javascript规范指南
 ## <a name='strings'>String类型</a>
 
 - 使用单引号`''`
-    
+
     ```javascript
     //不推荐
     var name = "Bob Parr";
@@ -255,11 +255,11 @@ Airbnb 的javascript规范指南
 ## <a name='functions'>函数</a>
 
     - 函数表达式：
-    
+
     ```javascript
     // 匿名函数表达式
     var anonymous = function(){
-      return true;    
+      return true;
     }
 
     // 命名函数表达式
@@ -269,12 +269,12 @@ Airbnb 的javascript规范指南
 
     // 立即执行的函数表达式（IIFE）
     (function(){
-      console.log('Welcome to the Internet. Please follow me.');    
+      console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
 
     - 不要将函数声明放在如if/while循环或其他任何语句中。但可以用函数表达式来替代函数声明这么做。一些浏览器可能的确可以在语句中使用函数声明。但是在解析方面的处理各不相同，各种浏览器下兼容性很不好。
-    
+
     - **注意:** ECMA-262定义了一系列的语句，但是函数声明并没有被归类为真正的语句。[关于这点可查看ECMA-262的文档](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)
 
     ```javascript
@@ -298,14 +298,44 @@ Airbnb 的javascript规范指南
     ```javascript
     //不推荐
     function nope(name, options, arguments) {
-      // ...stuff...    
+      // ...stuff...
     }
 
     //推荐
     function yup(name, options, args) {
-      // ...stuff...    
+      // ...stuff...
     }
     ```
-    
+
 ## <a name='properties'>属性</a>
-    
+    - 访问一个属性时，使用点的形式取值。
+    ```javascript
+    var luke = {
+          jedi: true,
+            age: 28
+    };
+
+    // 不推荐
+    var isJedi = luke['jedi'];
+
+    // 推荐
+    var isJedi = luke.jedi;
+    ```
+
+    - 需要一个变量访问一个属性时，试用“[]”来取值。
+
+    ```javascript
+    var luke = {
+          jedi: true,
+            age: 28
+    };
+
+    function getProp(prop) {
+          return luke[prop];
+    }
+
+    var isJedi = getProp('jedi');
+    ```
+
+## <a name='variables'>变量</a>
+
