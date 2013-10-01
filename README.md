@@ -338,4 +338,4 @@ Airbnb 的javascript规范指南
     ```
 
 ## <a name='variables'>变量</a>
-
+    - 总是使用 `var` 来定义变量
