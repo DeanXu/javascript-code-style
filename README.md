@@ -254,7 +254,7 @@ Airbnb 的javascript规范指南
 
 ## <a name='functions'>函数</a>
 
-    - 函数表达式：
+- 函数表达式：
 
     ```javascript
     // 匿名函数表达式
@@ -273,9 +273,9 @@ Airbnb 的javascript规范指南
     })();
     ```
 
-    - 不要将函数声明放在如if/while循环或其他任何语句中。但可以用函数表达式来替代函数声明这么做。一些浏览器可能的确可以在语句中使用函数声明。但是在解析方面的处理各不相同，各种浏览器下兼容性很不好。
+- 不要将函数声明放在如if/while循环或其他任何语句中。但可以用函数表达式来替代函数声明这么做。一些浏览器可能的确可以在语句中使用函数声明。但是在解析方面的处理各不相同，各种浏览器下兼容性很不好。
 
-    - **注意:** ECMA-262定义了一系列的语句，但是函数声明并没有被归类为真正的语句。[关于这点可查看ECMA-262的文档](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)
+- **注意:** ECMA-262定义了一系列的语句，但是函数声明并没有被归类为真正的语句。[关于这点可查看ECMA-262的文档](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97)
 
     ```javascript
     //不推荐
@@ -293,7 +293,7 @@ Airbnb 的javascript规范指南
     }
     ```
 
-    - `arguments` 不能作为一个参数的名字， 因为这会覆盖每一个函数内的`arguments`对象。
+- `arguments` 不能作为一个参数的名字， 因为这会覆盖每一个函数内的`arguments`对象。
 
     ```javascript
     //不推荐
@@ -308,7 +308,7 @@ Airbnb 的javascript规范指南
     ```
 
 ## <a name='properties'>属性</a>
-    - 访问一个属性时，使用点的形式取值。
+- 访问一个属性时，使用点的形式取值。
     ```javascript
     var luke = {
           jedi: true,
@@ -322,14 +322,14 @@ Airbnb 的javascript规范指南
     var isJedi = luke.jedi;
     ```
 
-    - 需要一个变量访问一个属性时，试用“[]”来取值。
+- 需要一个变量访问一个属性时，试用“[]”来取值。
 
     ```javascript
     var luke = {
           jedi: true,
             age: 28
     };
-
+    
     function getProp(prop) {
           return luke[prop];
     }
@@ -338,4 +338,4 @@ Airbnb 的javascript规范指南
     ```
 
 ## <a name='variables'>变量</a>
-    - 总是使用 `var` 来定义变量
+- 总是使用 `var` 来定义变量
