@@ -329,7 +329,7 @@ Airbnb 的javascript规范指南
           jedi: true,
             age: 28
     };
-    
+
     function getProp(prop) {
           return luke[prop];
     }
@@ -338,4 +338,14 @@ Airbnb 的javascript规范指南
     ```
 
 ## <a name='variables'>变量</a>
-- 总是使用 `var` 来定义变量
+- 总是使用 `var` 来定义变量。如果不这么做将定义一个全局变量出来。我们希望避免全局命名空间的污染。
+    ```javascript
+    // 不推荐
+    superPower = new SuperPower();
+
+    // 推荐
+    var superPower = new SuperPower();
+    ```
+
+
+
