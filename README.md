@@ -347,5 +347,20 @@ Airbnb 的javascript规范指南
     var superPower = new SuperPower();
     ```
 
+- 使用一个`var` 声明多个变量，并且每声明一个变量就换一行。
+
+    ```javascript
+    // 不推荐
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball = 'z';
+
+    // 推荐
+    var items = getItems(),
+        goSportsTeam = true,
+        dragonball = 'z';
+
+    ```
+
 
 
