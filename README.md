@@ -362,5 +362,27 @@ Airbnb 的javascript规范指南
 
     ```
 
+- 声明多个变量时，把不赋值的变量放在后面。  (This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.)
+
+    ```javascript
+    // 不推荐
+    var i, len, dragonball,
+        items = getItems(),
+        goSportsTeam = true;
+
+    // 不推荐
+    var i, items = getItems(),
+        dragonball,
+        goSportsTeam = true,
+        len;
+
+    // 推荐
+    var items = getItems(),
+        goSportsTeam = true,
+        dragonball,
+        length,
+        i;
+
+    ```
 
 
