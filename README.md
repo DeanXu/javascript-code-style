@@ -322,7 +322,7 @@ Airbnb 的javascript规范指南
     var isJedi = luke.jedi;
     ```
 
-- 需要一个变量访问一个属性时，试用“[]”来取值。
+- 需要一个变量访问一个属性时，使用“[]”来取值。
 
     ```javascript
     var luke = {
