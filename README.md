@@ -186,7 +186,7 @@ Airbnb 的javascript规范指南
 
 - 当字符串长度超过80个时，应该通过字符串连接多行显示。
 
-- 注意：过度使用字符串连接将会印象性能。[jsPerf](http://jsperf.com/ya-string-concat)&[Discussion](https://github.com/airbnb/javascript/issues/40)
+- 注意：过度使用字符串连接将会影响性能。[jsPerf](http://jsperf.com/ya-string-concat)&[Discussion](https://github.com/airbnb/javascript/issues/40)
 
     ```javascript
     //不推荐
