@@ -445,4 +445,5 @@ Airbnb 的javascript规范指南
 ## <a name='hoisting'>声明提前</a>
     
 - 变量应该在作用域的顶部声明。
+test
 
