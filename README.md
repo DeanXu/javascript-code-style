@@ -11,7 +11,7 @@ Airbnb 的javascript规范指南
   1. [函数](#functions)
   1. [属性](#properties)
   1. [变量](#variables)
-  1. [Hoisting](#hoisting)
+  1. [声明提前](#hoisting)
   1. [Conditional Expressions & Equality](#conditionals)
   1. [Blocks](#blocks)
   1. [Comments](#comments)
@@ -362,7 +362,7 @@ Airbnb 的javascript规范指南
 
     ```
 
-- 声明多个变量时，把不赋值的变量放在后面。  (This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.)
+- 声明多个变量时，把不赋值的变量放在后面。这样做是有好处的，如果日后你想给未赋值变量赋值的时候，可能要引用到上面已经赋值的变量。
 
     ```javascript
     // 不推荐
@@ -385,6 +385,63 @@ Airbnb 的javascript规范指南
 
     ```
 
-- 在一个作用域的顶部给一个变量赋值。
+- 在一个作用域的顶部给一个变量赋值。这样有助于避开，变量声明和声明提前的分配问题。
+    ```javascript
+    // 不推荐
+    function() {
+      test();
+      console.log('doing stuff..');
 
+      //..other stuff..
+
+      var name = getName();
+
+      if (name === 'test') {
+        return false;
+      }
+
+      return name;
+    }
+
+    // 推荐
+    function() {
+      var name = getName();
+
+      test();
+      console.log('doing stuff..');
+
+      //..other stuff..
+
+      if (name === 'test') {
+        return false;
+      }
+
+      return name;
+    }
+
+    // 不推荐
+    function() {
+      var name = getName();
+
+      if (!arguments.length) {
+        return false;
+      }
+
+      return true;
+    }
+
+    // 推荐
+    function() {
+      if (!arguments.length) {
+        return false;
+      }
+
+      var name = getName();
+
+      return true;
+    }
+    ```
+
+## <a name='hoisting'>声明提前</a>
+    
 
