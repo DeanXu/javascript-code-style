@@ -311,8 +311,8 @@ Airbnb 的javascript规范指南
 - 访问一个属性时，使用点的形式取值。
     ```javascript
     var luke = {
-          jedi: true,
-            age: 28
+      jedi: true,
+      age: 28
     };
 
     // 不推荐
@@ -326,12 +326,12 @@ Airbnb 的javascript规范指南
 
     ```javascript
     var luke = {
-          jedi: true,
-            age: 28
+      jedi: true,
+      age: 28
     };
 
     function getProp(prop) {
-          return luke[prop];
+      return luke[prop];
     }
 
     var isJedi = getProp('jedi');
