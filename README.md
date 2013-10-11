@@ -309,6 +309,7 @@ Airbnb 的javascript规范指南
 
 ## <a name='properties'>属性</a>
 - 访问一个属性时，使用点的形式取值。
+
     ```javascript
     var luke = {
       jedi: true,
@@ -339,6 +340,7 @@ Airbnb 的javascript规范指南
 
 ## <a name='variables'>变量</a>
 - 总是使用 `var` 来定义变量。如果不这么做将定义一个全局变量出来。我们希望避免全局命名空间的污染。
+
     ```javascript
     // 不推荐
     superPower = new SuperPower();
@@ -386,6 +388,7 @@ Airbnb 的javascript规范指南
     ```
 
 - 在一个作用域的顶部给一个变量赋值。这样有助于避开，变量声明和声明提前的分配问题。
+
     ```javascript
     // 不推荐
     function() {
