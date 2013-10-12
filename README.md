@@ -472,3 +472,61 @@ Airbnb 的javascript规范指南
 
     ```
 
+- 匿名函数表达式将该变量名做了提前声明，没有给该变量赋值函数。
+
+    ```javascript
+    function example() {
+      console.log(anonymous); // => undefined
+
+      anonymous(); // => 抛出异常，anonymous 不是一个函数
+
+      var anonymous = function() {
+        console.log('anonymous function expression');
+      };
+    }
+    ```
+
+- 和匿名一样，有名函数表达式将该变量名做了提前声明，没有给该变量赋值函数名和函数体。
+    
+    ```javascript
+    function example() {
+      console.log(named); // => undefined
+
+      named(); // => 抛出异常， named 不是一个函数
+
+      superPower(); // => 抛出异常， superPower 没定义
+
+      var named = function superPower() {
+        console.log('Flying');
+      };
+    }
+
+    // 把函数名改成和变量名一样，也得出同样的结果。
+    function example() {
+      console.log(named); // => undefined
+
+      named(); // => TypeError named is not a function
+
+      var named = function named() {
+        console.log('named');
+      };
+    }
+
+    ```
+
+- 函数声明会将函数名和函数体声明提前。
+
+    ```javascript
+    function example() {
+      superPower(); // => Flying
+
+      function superPower() {
+        console.log('Flying');
+      }
+    }
+    ```
+
+- 更多信息请参照 [Ben Cherry](http://www.adequatelygood.com/) 的 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting)
+
+
+
