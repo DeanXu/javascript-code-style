@@ -446,25 +446,24 @@ Airbnb 的javascript规范指南
     ```
 
 ## <a name='hoisting'>声明提前</a>
-    
-- 变量应该在作用域的顶部声明。这样在下面使用时，能正常引用。
+
+- 不管你在何处给一个变量声明或赋值，javascript解析器都会事先在作用域的顶端做声明提前（Hoisting）。
 
     ```javascript
     // 我们知道下面将不能正常运行（假设没有全局变量）
     function example() {
-      console.log(notDefined); // => 抛出一个引用错误    
+      console.log(notDefined); // => 抛出一个引用错误
     }
 
-    // 在引用一个变量之前，先创建一个变量声明。
-    // 注意：赋的“true”值，没有声明提前。
+    // 在引用这个变量之后，给这个变量赋值将不会抛异常，这是因为javascript解析器有声明提前。
+    // 注意：赋的“true”值，不会被提前。
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
-    // The interpreter is hoisting the variable
-    // declaration to the top of the scope.
-    // Which means our example could be rewritten as:
+    // javascript解析器,会在作用域的顶部提前声明变量。
+    // 用代码描述出来，其实就等同于下面这种情况。
     function example() {
       var declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
