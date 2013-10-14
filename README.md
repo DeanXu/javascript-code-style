@@ -505,7 +505,7 @@ Airbnb 的javascript规范指南
     function example() {
       console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+      named(); // => 抛出异常， named 不是一个函数
 
       var named = function named() {
         console.log('named');
