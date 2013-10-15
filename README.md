@@ -12,7 +12,7 @@ Airbnb 的javascript规范指南
   1. [属性](#properties)
   1. [变量](#variables)
   1. [声明提前](#hoisting)
-  1. [Conditional Expressions & Equality](#conditionals)
+  1. [条件表达式与等式](#conditionals)
   1. [Blocks](#blocks)
   1. [Comments](#comments)
   1. [Whitespace](#whitespace)
@@ -528,5 +528,7 @@ Airbnb 的javascript规范指南
 
 - 更多信息请参照 [Ben Cherry](http://www.adequatelygood.com/) 的 [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting)
 
+## <a name='conditionals'>条件表达式与等式</a>
 
+- 使用 `===` 和 `!==` 代替 `==` 和 `!=`。
 
