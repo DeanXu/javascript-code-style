@@ -13,8 +13,8 @@ Airbnb 的javascript规范指南
   1. [变量](#variables)
   1. [声明提前](#hoisting)
   1. [条件表达式与等式](#conditionals)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
+  1. [块](#blocks)
+  1. [注释](#comments)
   1. [Whitespace](#whitespace)
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
@@ -531,4 +531,138 @@ Airbnb 的javascript规范指南
 ## <a name='conditionals'>条件表达式与等式</a>
 
 - 使用 `===` 和 `!==` 代替 `==` 和 `!=`。
+
+- 条件表达式 会通过 `ToBoolean` 来进行强制转化，而且遵循以下的规则：
+
+    + **对象**被转化为**true**
+    + **Undefined**被转化为**false**
+    + **Null**被转化为**false**
+    + **布尔值**被转化为**相应的布尔值**
+    + **数字**当值为**+0**,**-0**或**NaN**时转化为**false**，其他的转化为**true**
+    + **Strings类型**如果为空时转化为**false**,否则转化为**true**
+
+    ```javascript
+    if ([0]) {
+        // true    
+        // 因为数组是对象，对象会被转化为 true
+    }
+    ```
+
+- 使用快捷方式
+
+    ```javascript
+    // 不推荐
+    if (name !== '') {
+      // ...stuff...
+    }
+
+    // 推荐
+    if (name) {
+      // ...stuff...
+    }
+
+    // 不推荐
+    if (collection.length > 0) {
+      // ...stuff...
+    }
+
+    // 推荐
+    if (collection.length) {
+      // ...stuff...
+    }
+    ```
+- 更多的信息 请看 Angus Croll 的 [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108)
+
+## <a name='blocks'>块</a>
+
+- 给多行的块，使用大括号
+
+    ```javascript
+    // 不推荐
+    if (test)
+      return false;
+
+    // 推荐
+    if (test) return false;
+
+    // 推荐
+    if (test) {
+      return false;
+    }
+
+    // 不推荐
+    function() { return false; }
+
+    // 推荐
+    function() {
+      return false;
+    }
+    ```
+
+## <a name='comments'>注释</a>
+
+- 使用 `/**...*/` 进行多行注释。注释要包括描述、指定类型、参数值和返回值。
+
+    ```javascript
+    // 不推荐
+
+    // make() returns a new element
+    // based on the passed in tag name
+    //
+    // @param <String> tag
+    // @return <Element> element
+    function make(tag) {
+
+      // ...stuff...
+
+      return element;
+    }
+
+    // 推荐
+    /**
+     * make() returns a new element
+     * based on the passed in tag name
+     *
+     * @param <String> tag
+     * @return <Element> element
+     */
+    function make(tag) {
+
+      // ...stuff...
+
+      return element;
+    }
+    ```
+
+- 使用 `//` 进行单行注释。注释单独占一行，并写在需要注释对象的上面。在注释的上面留一个空行。
+
+    ```javascript
+    // 不推荐
+    var active = true;  // is current tab
+
+    // 推荐
+    // is current tab
+    var active = true;
+
+    // 不推荐
+    function getType() {
+      console.log('fetching type...');
+      // set the default type to 'no type'
+      var type = this._type || 'no type';
+
+      return type;
+    }
+
+    // 推荐
+    function getType() {
+      console.log('fetching type...');
+
+      // set the default type to 'no type'
+      var type = this._type || 'no type';
+
+      return type;
+    }
+    ```
+
+
 
