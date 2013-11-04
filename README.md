@@ -15,7 +15,7 @@ Airbnb 的javascript规范指南
   1. [条件表达式与等式](#conditionals)
   1. [块](#blocks)
   1. [注释](#comments)
-  1. [Whitespace](#whitespace)
+  1. [空格](#whitespace)
   1. [Commas](#commas)
   1. [Semicolons](#semicolons)
   1. [Type Casting & Coercion](#type-coercion)
@@ -663,6 +663,102 @@ Airbnb 的javascript规范指南
       return type;
     }
     ```
+
+- 给你的代码加前缀，比如`FIXME`或`TODO`，这样有助于其他开发者可以迅速理解你指出的需要被处理的问题。
+如果想更清晰一点你还可以在后面加上描述，比如: `FIXME -- need to figure this out`或`TODO -- need to implement.`
+
+- 使用 `// FIXME:` 去注释问题
+
+    ```javascript
+    function Calculator() {
+
+      // FIXME: shouldn't use a global here
+      total = 0;
+
+      return this;
+    }
+    ```
+
+- 使用 `// TODO:` 来注释解决方法
+
+    ```javascript
+    function Calculator() {
+
+      // TODO: total should be configurable by an options param
+      this.total = 0;
+
+      return this;
+    }
+    ```
+
+## <a name='whitespace'>空格</a>
+
+- 将tab键设成2个空格
+
+    ```javascript
+
+    // 不推荐
+    function() {
+    ∙∙∙∙var name;
+    }
+
+    // 不推荐
+    function() {
+    ∙var name;
+    }
+
+    // 推荐
+    function() {
+    ∙∙var name;
+    } 
+    ```
+
+- 逗号/冒号/小括号后面留一个空格
+
+    ```javascript
+    // 不推荐
+    function test(){
+      console.log('test');
+    }
+
+    // 推荐
+    function test() {
+      console.log('test');
+    }
+
+    // 不推荐
+    dog.set('attr',{
+      age: '1 year',
+      breed: 'Bernese Mountain Dog'
+    });
+
+    // 推荐
+    dog.set('attr', {
+      age: '1 year',
+      breed: 'Bernese Mountain Dog'
+    });
+
+    ```
+
+- 在文件的最后留一个空行
+
+    ```javascript
+    // 不推荐
+    (function(global) {
+      // ...stuff...
+    })(this);
+    ```
+
+    ```javascript
+    // 推荐
+    (function(global) {
+      // ...stuff...
+    })(this);
+
+    ```
+
+
+
 
 
 
