@@ -16,7 +16,7 @@ Airbnb 的javascript规范指南
   1. [块](#blocks)
   1. [注释](#comments)
   1. [空格](#whitespace)
-  1. [Commas](#commas)
+  1. [逗号](#commas)
   1. [Semicolons](#semicolons)
   1. [Type Casting & Coercion](#type-coercion)
   1. [Naming Conventions](#naming-conventions)
@@ -757,6 +757,43 @@ Airbnb 的javascript规范指南
 
     ```
 
+
+## <a name='commas'>逗号</a>
+
+- 逗号不要前置
+
+    ```javascript
+    // 不推荐
+    var once
+      , upon
+      , aTime;
+
+    // 推荐
+    var once,
+        upon,
+        aTime;
+
+    // 不推荐
+    var hero = {
+        firstName: 'Bob'
+      , lastName: 'Parr'
+      , heroName: 'Mr. Incredible'
+      , superPower: 'strength'
+    };
+
+    // 推荐
+    var hero = {
+      firstName: 'Bob',
+      lastName: 'Parr',
+      heroName: 'Mr. Incredible',
+      superPower: 'strength'
+    };
+
+    ```
+
+- 最后一个元素不可以加逗号。这在IE6和IE7还有IE9的怪异模式下出错。
+
+    
 
 
 
